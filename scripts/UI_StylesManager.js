@@ -2,15 +2,15 @@ export class UI_StylesManager {
   
   static injectAllStyles() {
     this.injectPositioningStyles();
-    this.injectUIElementStyles();
+    this.injectGUIStyles();
   }
   
   static injectPositioningStyles() {
     this.injectStylesheet("../stylesheets/positioning-styles.css");
   }
   
-  static injectUIElementStyles() {
-    this.injectStylesheet("../stylesheets/ui-element-styles.css");
+  static injectGUIStyles() {
+    this.injectStylesheet("../stylesheets/gui-styles.css");
   }
   
   static injectStylesheet(src) {

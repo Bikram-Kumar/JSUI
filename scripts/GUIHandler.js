@@ -1,4 +1,4 @@
-export class ElementHandler {
+export class GUIHandler {
 
   constructor(parentNode = window.document.body) {
     this.parentNode = parentNode;
@@ -64,7 +64,7 @@ export class ElementHandler {
 }
 
 
-ElementHandler.prototype.createDialogBox = function() {
+GUIHandler.prototype.createDialogBox = function() {
 
   var background = window.document.createElement('div');
   var dialogBox = window.document.createElement('div');
@@ -125,7 +125,7 @@ ElementHandler.prototype.createDialogBox = function() {
 
 }
 
-ElementHandler.prototype.alert = function(message, callback) {
+GUIHandler.prototype.alert = function(message, callback) {
   var p = window.document.createElement('p');
   p.innerHTML = message;
   p.style.marginBottom = '0px';
@@ -141,7 +141,7 @@ ElementHandler.prototype.alert = function(message, callback) {
 
 }
 
-ElementHandler.prototype.createLoadingBuffer = function() {
+GUIHandler.prototype.createLoadingBuffer = function() {
   /***************************************************************************************************
   ★ We create three divs, background, box and the buffer.
   ★ When showLoadingBufferPopUp is called, the background visibility will be hidden
@@ -182,7 +182,7 @@ ElementHandler.prototype.createLoadingBuffer = function() {
   this.loadingBuffer = loadingBufferBox;
 }
 
-ElementHandler.prototype.prompt = function(labelText, inputType, callback) {
+GUIHandler.prototype.prompt = function(labelText, inputType, callback) {
 
   var label = window.document.createElement('label');
   var input = window.document.createElement('input');
@@ -208,7 +208,7 @@ ElementHandler.prototype.prompt = function(labelText, inputType, callback) {
 
 }
 
-ElementHandler.prototype.confirm = function (message, callback) {
+GUIHandler.prototype.confirm = function (message, callback) {
   var p = window.document.createElement('p');
   p.innerHTML = message;
   p.style.marginBottom = '0px';
@@ -231,9 +231,11 @@ ElementHandler.prototype.confirm = function (message, callback) {
 
 }
 
-ElementHandler.prototype.formInput = function (formData, callback) {
-  var form = window.document.createElement('form');
-  form.innerHTML = formData;
+GUIHandler.prototype.formInput = function (formTxt, callback) {
+  var tempDiv = window.document.createElement('div');
+  tempDiv.innerHTML = formTxt;
+  var form = tempDiv.getElementsByTagName('form')[0];
+  console.log(form);
   form.classList.add('position-relative', 'position-centerX');
   form.style.display = 'block';
   form.style.marginTop = '16px';
